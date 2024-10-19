@@ -1,0 +1,37 @@
+{
+    "dataRoles": [
+      {
+        "name": "category",
+        "kind": "Grouping",
+        "displayName": "Category"
+      },
+      {
+        "name": "measure",
+        "kind": "Measure",
+        "displayName": "Measure"
+      }
+    ],
+    "dataViewMappings": [
+      {
+        "table": {
+          "rows": {
+            "select": [
+              { "for": { "in": "category" } },
+              { "for": { "in": "measure" } }
+            ]
+          }
+        }
+      }
+    ],
+    "objects": {
+      "general": {
+        "displayName": "General",
+        "properties": {
+          "formatString": {
+            "type": { "formatting": { "formatString": true } }
+          }
+        }
+      }
+    }
+  }
+  
