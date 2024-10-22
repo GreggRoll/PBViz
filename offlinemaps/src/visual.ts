@@ -15,7 +15,7 @@ export class Visual implements IVisual {
 
     constructor(options: VisualConstructorOptions) {
         this.target = options.element;
-        this.svg = select<HTMLElement, unknown>(this.target)
+        this.svg = select<SVGSVGElement, unknown>(this.target)
             .append<SVGSVGElement>("svg")
             .attr("width", "100%")
             .attr("height", "100%");
