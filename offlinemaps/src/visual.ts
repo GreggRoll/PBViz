@@ -15,10 +15,14 @@ export class Visual implements IVisual {
 
     constructor(options: VisualConstructorOptions) {
         this.target = options.element;
-        this.svg = select<SVGSVGElement, unknown>(this.target)
-            .append<SVGSVGElement>("svg")
-            .attr("width", "100%")
-            .attr("height", "100%");
+        
+        // Create an SVG element and append it to this.target
+        const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svgElement.setAttribute("width", "100%");
+        svgElement.setAttribute("height", "100%");
+        this.target.appendChild(svgElement);
+
+        this.svg = select<SVGSVGElement, unknown>(svgElement);
 
         // Load the world map SVG
         d3.xml("assets/world-map.svg").then((data) => {
